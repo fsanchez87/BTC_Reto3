@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const TrelloCard = () => {
-    return (
-        <div>
-            <h1>Card</h1>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>Card</h1>
+    </div>
+  );
+};
 
-export default TrelloCard
+export default TrelloCard;
