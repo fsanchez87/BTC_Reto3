@@ -6,13 +6,14 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useState } from "react";
+import AddCardorListText from "./AddCardorListText";
 
 const AddCardorList = () => {
   const [open, setOpen] = useState(false);
   return (
     <div>
       <Collapse in={open}>
-        <h1>Abierto</h1>
+        <AddCardorListText />
       </Collapse>
       <Collapse in={!open}>
         <h1>Cerrado</h1>
