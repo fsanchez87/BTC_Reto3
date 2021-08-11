@@ -9,7 +9,7 @@ import { useState } from "react";
 import AddCardorListText from "./AddCardorListText";
 
 const AddCardorList = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const classes = useStyles();
   return (
     <div className={classes.root}>
