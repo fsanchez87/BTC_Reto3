@@ -1,10 +1,12 @@
-import React from 'react'
+import {Paper, CssBaseline} from "@material-ui/core"
+import ListTitle from "./ListTitle"
 
 const TrelloList = () => {
     return (
-        <div>
-            <h1>Esta es la lista</h1>
-        </div>
+        <Paper>
+            <CssBaseline/>
+            <ListTitle/>  
+        </Paper>
     )
 }
 
