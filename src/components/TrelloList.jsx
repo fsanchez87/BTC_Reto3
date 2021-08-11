@@ -1,4 +1,5 @@
 import {Paper, CssBaseline} from "@material-ui/core"
+import AddCardorList from "./AddCardorList"
 import ListTitle from "./ListTitle"
 import TrelloCard from "./TrelloCard"
 
@@ -7,7 +8,8 @@ const TrelloList = () => {
         <Paper>
             <CssBaseline/>
             <ListTitle/>
-            <TrelloCard/>  
+            <TrelloCard/>
+            <AddCardorList/>  
         </Paper>
     )
 }
