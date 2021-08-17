@@ -1,6 +1,7 @@
 import "./App.css";
 import TrelloList from "./components/TrelloList";
 import { makeStyles } from "@material-ui/core";
+import background_image from "./images/background.jpg";
 
 function App() {
   const classes = useStyles();
@@ -21,8 +22,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100vh",
     overflowY: "auto",
+    backgroundImage: `url(${background_image})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
   },
-  container:{
-    display: "flex"
-  }
+  container: {
+    display: "flex",
+  },
 }));
