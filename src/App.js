@@ -13,7 +13,7 @@ function App() {
         <TrelloList />
         <TrelloList />
         <div>
-          <AddCardorList />
+          <AddCardorList type="list" />
         </div>
       </div>
     </div>

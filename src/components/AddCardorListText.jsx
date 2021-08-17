@@ -10,7 +10,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { fade } from "@material-ui/core";
 
-const AddCardorListText = () => {
+const AddCardorListText = ({ type }) => {
   const [title, setTitle] = useState("");
   const classes = useStyles();
 
@@ -21,13 +21,19 @@ const AddCardorListText = () => {
           multiline
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter a title for this card..."
+          placeholder={
+            type === "card"
+              ? "Enter a title for this card..."
+              : "Enter list title"
+          }
           inputProps={{ className: classes.input }}
         />
       </Paper>
       <div className={classes.confirm}>
         <div className={classes.options}>
-          <Button className={classes.btnConfirm}>Add card</Button>
+          <Button className={classes.btnConfirm}>
+            {type === "card" ? "Add card" : "Add list"}
+          </Button>
           <IconButton>
             <ClearIcon />
           </IconButton>
