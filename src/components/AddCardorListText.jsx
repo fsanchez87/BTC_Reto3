@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import { fade } from "@material-ui/core";
+import { alpha } from "@material-ui/core";
 
 const AddCardorListText = ({ type, setOpen }) => {
   const [title, setTitle] = useState("");
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#5aac44",
     color: "#fff",
     "&:hover": {
-      background: fade("#5aac44", 0.75),
+      background: alpha("#5aac44", 0.75),
     },
   },
 }));
