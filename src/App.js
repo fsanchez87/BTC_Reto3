@@ -3,6 +3,7 @@ import TrelloList from "./components/TrelloList";
 import { makeStyles } from "@material-ui/core";
 import background_image from "./images/background.jpg";
 import AddCardorList from "./components/AddCardorList";
+import mockData from "./mockdata.js";
 
 function App() {
   const classes = useStyles();
