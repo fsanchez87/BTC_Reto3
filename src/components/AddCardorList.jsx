@@ -8,17 +8,20 @@ import {
 import { useState } from "react";
 import AddCardorListText from "./AddCardorListText";
 
-const AddCardorList = () => {
+const AddCardorList = ({ type }) => {
   const [open, setOpen] = useState(true);
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <Collapse in={open}>
-        <AddCardorListText />
+        <AddCardorListText type={type} setOpen={setOpen}/>
       </Collapse>
       <Collapse in={!open}>
-        <Paper className={classes.addCardorListText}>
-          <Typography>+ Add a card</Typography>
+        <Paper className={classes.addCardorListText} onClick={()=>setOpen(true)}>
+          <Typography>
+            {type === "card" ? "+ Add a card" : "+ Add another list"}
+          </Typography>
         </Paper>
       </Collapse>
     </div>
@@ -34,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 1, 1, 2),
     margin: theme.spacing(0, 1, 1, 1),
     background: "#ebecf0",
-    "&:hover":{
-        backgroundColor: fade("#000", 0.25)
-    }
+    "&:hover": {
+      backgroundColor: fade("#000", 0.25),
+    },
   },
 }));
 
