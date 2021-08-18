@@ -11,10 +11,11 @@ import AddCardorListText from "./AddCardorListText";
 const AddCardorList = ({ type }) => {
   const [open, setOpen] = useState(true);
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <Collapse in={open}>
-        <AddCardorListText type={type} />
+        <AddCardorListText type={type} setOpen={setOpen}/>
       </Collapse>
       <Collapse in={!open}>
         <Paper className={classes.addCardorListText}>

@@ -10,7 +10,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { fade } from "@material-ui/core";
 
-const AddCardorListText = ({ type }) => {
+const AddCardorListText = ({ type, setOpen }) => {
   const [title, setTitle] = useState("");
   const classes = useStyles();
 
@@ -20,6 +20,7 @@ const AddCardorListText = ({ type }) => {
         <InputBase
           multiline
           value={title}
+          onBlur={() =>setOpen(false)}
           onChange={(e) => setTitle(e.target.value)}
           placeholder={
             type === "card"
