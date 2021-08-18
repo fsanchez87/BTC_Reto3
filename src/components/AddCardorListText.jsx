@@ -35,7 +35,7 @@ const AddCardorListText = ({ type, setOpen }) => {
           <Button className={classes.btnConfirm}>
             {type === "card" ? "Add card" : "Add list"}
           </Button>
-          <IconButton>
+          <IconButton onClick={()=>setOpen(false)}>
             <ClearIcon />
           </IconButton>
         </div>
