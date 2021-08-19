@@ -1,6 +1,6 @@
+import { alpha } from "@material-ui/core";
 import {
   Collapse,
-  fade,
   makeStyles,
   Paper,
   Typography,
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 1, 1, 1),
     background: "#ebecf0",
     "&:hover": {
-      backgroundColor: fade("#000", 0.25),
+      backgroundColor: alpha("#000", 0.25),
     },
   },
 }));
