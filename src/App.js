@@ -13,10 +13,20 @@ function App() {
   const [data, setData] = useState(mockData);
   console.log(data);
 
-  const updateListTitle = (data) => {};
+  const updateListTitle = (updatedTitle, listId) => {
+    const list = data.lists[listId];
+    list.title = updatedTitle;
+    setData({
+      ...data,
+      lists: {
+        ...data.lists,
+        [listId]: list,
+      },
+    });
+  };
 
   return (
-    <ContextAPI.Provider>
+    <ContextAPI.Provider value={{ updateListTitle }}>
       <div className={classes.root}>
         <div className={classes.container}>
           {data.listIds.map((listID) => {
