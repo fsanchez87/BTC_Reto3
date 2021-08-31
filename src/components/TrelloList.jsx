@@ -9,12 +9,12 @@ const TrelloList = ({ list }) => {
   return (
     <Paper className={classes.root}>
       <CssBaseline />
-      <ListTitle title={list.title} listId={list.id}/>
+      <ListTitle title={list.title} listId={list.id} />
       {list.cards.map((card) => (
         <TrelloCard card={card} key={card.id} />
       ))}
 
-      <AddCardorList type="card" />
+      <AddCardorList type="card" listId={list.id} />
     </Paper>
   );
 };

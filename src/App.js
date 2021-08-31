@@ -5,6 +5,7 @@ import background_image from "./images/background.jpg";
 import AddCardorList from "./components/AddCardorList";
 import mockData from "./mockdata.js";
 import { useState } from "react";
+import uuid from "react-uuid"; // Para generar ID únicos
 
 import ContextAPI from "./ContextAPI";
 
@@ -25,8 +26,42 @@ function App() {
     });
   };
 
+  const addCard = (title, listId) => {
+    const newCardId = uuid();
+    const newCard = {
+      id: newCardId,
+      title,
+    };
+    // add card
+    const list = data.lists[listId];
+    // deja la card y añades las newCard
+    list.cards = [...list.cards, newCard];
+    setData({
+      ...data,
+      lists: {
+        ...data.lists,
+        [listId]: list,
+      },
+    });
+  };
+  const addList = (title) => {
+    // nuevo id
+    const newListId = uuid();
+    setData({
+      listIds: [...data.listIds, newListId],
+      list: {
+        ...data.lists,
+        [newListId]: {
+          id: newListId,
+          title,
+          cards: [],
+        },
+      },
+    });
+  };
+
   return (
-    <ContextAPI.Provider value={{ updateListTitle }}>
+    <ContextAPI.Provider value={{ updateListTitle, addCard, addList }}>
       <div className={classes.root}>
         <div className={classes.container}>
           {data.listIds.map((listID) => {
