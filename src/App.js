@@ -44,7 +44,21 @@ function App() {
       },
     });
   };
-  const addList = (title) => {};
+  const addList = (title) => {
+    // nuevo id
+    const newListId = uuid();
+    setData({
+      listIds: [...data.listIds, newListId],
+      list: {
+        ...data.lists,
+        [newListId]: {
+          id: newListId,
+          title,
+          cards: [],
+        },
+      },
+    });
+  };
 
   return (
     <ContextAPI.Provider value={{ updateListTitle, addCard, addList }}>
