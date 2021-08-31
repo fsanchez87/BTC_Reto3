@@ -6,24 +6,40 @@ import AddCardorList from "./components/AddCardorList";
 import mockData from "./mockdata.js";
 import { useState } from "react";
 
+import ContextAPI from "./ContextAPI";
+
 function App() {
   const classes = useStyles();
   const [data, setData] = useState(mockData);
   console.log(data);
 
-  return (
-    <div className={classes.root}>
-      <div className={classes.container}>
-        {data.listIds.map((listID) => {
-          const list = data.lists[listID];
-          return <TrelloList list={list} key={listID} />;
-        })}
+  const updateListTitle = (updatedTitle, listId) => {
+    const list = data.lists[listId];
+    list.title = updatedTitle;
+    setData({
+      ...data,
+      lists: {
+        ...data.lists,
+        [listId]: list,
+      },
+    });
+  };
 
-        <div>
-          <AddCardorList type="list" />
+  return (
+    <ContextAPI.Provider value={{ updateListTitle }}>
+      <div className={classes.root}>
+        <div className={classes.container}>
+          {data.listIds.map((listID) => {
+            const list = data.lists[listID];
+            return <TrelloList list={list} key={listID} />;
+          })}
+
+          <div>
+            <AddCardorList type="list" />
+          </div>
         </div>
       </div>
-    </div>
+    </ContextAPI.Provider>
   );
 }
 
