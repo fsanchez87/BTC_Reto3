@@ -25,8 +25,13 @@ function App() {
     });
   };
 
+  const addCard = (title, listId) => {
+    
+  };
+  const addList = (title) => {};
+
   return (
-    <ContextAPI.Provider value={{ updateListTitle }}>
+    <ContextAPI.Provider value={{ updateListTitle, addCard, addList }}>
       <div className={classes.root}>
         <div className={classes.container}>
           {data.listIds.map((listID) => {
