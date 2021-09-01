@@ -49,7 +49,7 @@ function App() {
     const newListId = uuid();
     setData({
       listIds: [...data.listIds, newListId],
-      list: {
+      lists: {
         ...data.lists,
         [newListId]: {
           id: newListId,
@@ -64,6 +64,7 @@ function App() {
     <ContextAPI.Provider value={{ updateListTitle, addCard, addList }}>
       <div className={classes.root}>
         <div className={classes.container}>
+         
           {data.listIds.map((listID) => {
             const list = data.lists[listID];
             return <TrelloList list={list} key={listID} />;
